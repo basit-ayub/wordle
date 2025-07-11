@@ -1,0 +1,22 @@
+#board {
+  justify-content: center;
+  gap: 8px;
+  display: grid;
+}
+
+.tile {
+  text-transform: uppercase;
+  color: #000;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 2px solid #d3d6da;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: background-color .3s, border-color .3s;
+  display: flex;
+}
+/*# sourceMappingURL=style.3a01df49.css.map */
