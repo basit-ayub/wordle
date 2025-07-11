@@ -1,9 +1,10 @@
 {
   "name": "wordle",
   "version": "1.0.0",
+    "homepage": "https://basit-ayub.github.io/wordle",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build"
+    "build": "parcel build index.html --public-url ./"
   },
   "keywords": [],
   "author": "",
@@ -15,4 +16,5 @@
   "dependencies": {
     "gsap": "^3.13.0"
   }
+
 }
