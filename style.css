@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f6f0db;
+    transition: background-color 0.7s ease, color 0.7s ease;
+  }
+  
+  
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+  }
+  
+  .nav-left {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .nav-right {
+    justify-items: right;
+  }
+
+  #theme-toggle{
+    border-radius: 100px;
+  }
+  
+  .wordle-button, .theme-button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    background-color: #6aaa64;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px #4b7c4a;
+    transition: 0.5s;
+  }
+  
+  .wordle-button:hover, .theme-button:hover {
+    background-color: #4a7e46;
+  }
+  
+  .wordle-button:active, .theme-button:active {
+    transform: translateY(5px);
+  }
+  
+
+  body.dark-theme {
+    background-color: #252530;
+    color: rgb(0, 0, 0);
+  }
+  
+  body.dark-theme .wordle-button,
+  body.dark-theme .theme-button {
+    background-color: #565758;
+    color: white;
+    box-shadow: 0 2px #333;
+}
+body.dark-theme .title
+{
+    color:white;
+}
+
+.main-header {
+  text-align: center;
+}
+
+.title {
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 3rem;
+  color: #333;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+  
+#board {
+    display: grid;
+    justify-content: center; 
+    align-content: start;    
+    gap: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: fit-content;
+    perspective: 500px;
+  }
+
+  .tile {
+    width: 47px;
+    height: 47px;
+    border: 2px solid #d3d6da;
+    background: #ffffff;
+    box-shadow: 0 2px 0 #999999;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    user-select: none;
+    border-radius: 7px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 0.4s;
+    position: relative;
+    will-change: transform;
+  }
+  
+  .tile:hover {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #999999;
+  }
+  .keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  
+  .keyboard-row {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .key {
+    padding: 12px 16px;
+    background-color: #d3d6da;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px #999;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .key.absent {
+    background-color: #787c7e;
+    color: white;
+    box-shadow: 0 2px #888;
+}
+  .key.correct{
+    background-color: #6aaa64; 
+    color: white;
+  }
+  .key.present{
+    background-color: #c9b458;
+    color: white;
+  }
+
+  
+  .key:active{
+    transform: translateY(5px);
+    box-shadow: none;
+    color: #ffffff;
+  }
+  .key:hover
+  {
+    color: #ffffff;
+    background-color: #888888;
+  }
+  .nav-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .wordle-button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: #6aaa64;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px #4b7c4a;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s;
+  }
+  
+  .wordle-button:hover {
+    background-color: #5a9a55;
+  }
+  
+  .wordle-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #4b7c4a;
+  }
+  .mode-select {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hidden {
+    display: none;
+  }
+  .correct {
+    background-color: #6aaa64; 
+    color: white;
+  }
+  
+  .present {
+    background-color: #c9b458;
+    color: white;
+  }
+  
+  .absent {
+    background-color: #787c7e; 
+    color: white;
+  }
+  .message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: grey;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+  }
+  
+  
+  .message.show {
+    opacity: 1;
+    top: 60px;
+  }
+  
+  .message.dark-theme {
+    background-color: #ddd;
+    color: #000;
+  }
+
+  .message.neon-red-box {
+    background-color:black; 
+    color: #fff;
+    border: 2px solid #ff073a;
+    box-shadow:
+      0 0 5px #ff073a,
+      0 0 10px #ff073a,
+      0 0 20px #ff073a,
+      0 0 40px #ff073a;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  .neon-green-box {
+    background-color: black;
+    color: #fff;
+    border: 2px solid #33ff00;
+    box-shadow:
+      0 0 5px #33ff00,
+      0 0 10px #33ff00,
+      0 0 20px #33ff00,
+      0 0 40px #33ff00;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  .neon-yellow-box {
+    background-color: black;
+    color: #fff;
+    border: 2px solid #ffee00;
+    box-shadow:
+      0 0 5px #ffee00,
+      0 0 10px #ffee00,
+      0 0 20px #ffee00,
+      0 0 40px #ffee00;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  .graffiti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: hsl(calc(360 * var(--i, 0)), 100%, 50%);
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .wordle-button, .theme-button {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+
+  .keyboard-row {
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .key {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    min-width: 8vw;
+  }
+
+  .tile {
+    width: 12vw;
+    height: 12vw;
+    font-size: 1.2rem;
+    border-radius: 5px;
+  }
+
+  #board {
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .message {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    top: 10px;
+  }
+
+  .neon-red-box,
+  .neon-yellow-box,
+  .neon-green-box {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tile {
+    width: 14vw;
+    height: 14vw;
+    font-size: 1rem;
+  }
+
+  .keyboard-row {
+    gap: 2px;
+  }
+
+  .key {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .wordle-button, .theme-button {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
+body {
+  overflow-x: hidden;
+}
