@@ -291,17 +291,20 @@ const commitGuess = async () => {
     setTimeout(() => {
       resetGame();
     }, 5000);
+    return;
   }
 
   if (currentRow === rows - 1) {
     showMessage(`The word was: ${correctWord}`);
     gameOver = true;
     setTimeout(resetGame, 5000);
+    return;
   }
 
   currentRow++;
   currentCol = 0;
   buffer = "";
+  return;
 };
 
 const isValidWord = async (word) => {
